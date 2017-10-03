@@ -1,0 +1,60 @@
+id: ChangeDraft
+name: ChangeDraft
+version: 0.9.5
+schema_version: 0.05
+l10n_class: MT::ChangeDraft::L10N
+description: <__trans phrase="Enables draft for a published entry and page.">
+author_name: ideaman's Inc.
+author_link: http://www.ideamans.com/mt/changedraft/
+
+settings:
+    change_draft_enabled:
+        default: 2
+    change_draft_display_list_column:
+        scope: system
+        default: optional
+    change_draft_widget:
+        scope: system
+        default: 1
+    change_draft_multi_drafts:
+        scope: system
+        default: 0
+
+system_config_template:
+    code: $ChangeDraft::MT::ChangeDraft::CMS::system_config_template
+
+blog_config_template:
+    code: $ChangeDraft::MT::ChangeDraft::CMS::blog_config_template
+
+config_settings:
+    ChangeDraftDisplayListColumn:
+        default:
+
+object_types:
+    entry:
+        change_draft: smallint indexed
+        change_draft_entry_id: integer indexed
+        change_draft_branched_on: datetime indexed
+
+list_properties: $ChangeDraft::MT::ChangeDraft::Listing::properties
+list_actions: $ChangeDraft::MT::ChangeDraft::Listing::actions
+
+callbacks:
+    MT::Entry::post_load: $ChangeDraft::MT::ChangeDraft::Entry::post_load
+    MT::Entry::pre_save: $ChangeDraft::MT::ChangeDraft::Entry::pre_save
+    MT::Entry::post_remove: $ChangeDraft::MT::ChangeDraft::Entry::post_remove
+
+    MT::Page::pre_search: $ChangeDraft::MT::ChangeDraft::Entry::pre_search
+    MT::Page::post_load: $ChangeDraft::MT::ChangeDraft::Entry::post_load
+    MT::Page::pre_save: $ChangeDraft::MT::ChangeDraft::Entry::pre_save
+    MT::Page::post_remove: $ChangeDraft::MT::ChangeDraft::Entry::post_remove
+
+    post_init: $ChangeDraft::MT::ChangeDraft::MT::post_init
+
+applications:
+    cms:
+        methods:
+            change_draft_copy: $ChangeDraft::MT::ChangeDraft::CMS::method_copy
+        callbacks:
+            template_param.list_common: $ChangeDraft::MT::ChangeDraft::Listing::template_param_list_common
+            template_param.edit_entry: $ChangeDraft::MT::ChangeDraft::CMS::template_param_edit_entry

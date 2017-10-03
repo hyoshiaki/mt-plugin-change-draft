@@ -1,0 +1,90 @@
+<mtapp:setting
+   id="change_draft_enabled"
+   label="<__trans phrase="Change Draft">"
+   show_hint="0">
+  <ul>
+    <li>
+      <label>
+        <input type="radio" name="change_draft_enabled" value="1"<mt:if name="change_draft_enabled"> checked="checked"</mt:if> />
+        <__trans phrase="Enables">
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="radio" name="change_draft_enabled" value="0"<mt:unless name="change_draft_enabled"> checked="checked"</mt:unless> />
+        <__trans phrase="Disables">
+      </label>
+    </li>
+  </ul>
+</mtapp:setting>
+
+<mtapp:setting
+   id="change_draft_multi_drafts"
+   label="<__trans phrase="Multiple Drafts">"
+   show_hint="0">
+  <p><__trans phrase="Allows multipe drafts for each entry or page?" /></p>
+  <p><__trans phrase="It is useful for two or more times future update." /></p>
+  <ul>
+    <li>
+      <label>
+        <input type="radio" name="change_draft_multi_drafts" value="1"<mt:if name="change_draft_multi_drafts"> checked="checked"</mt:if> />
+        <__trans phrase="Multiple drafts for each">
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="radio" name="change_draft_multi_drafts" value="0"<mt:unless name="change_draft_multi_drafts"> checked="checked"</mt:unless> />
+        <__trans phrase="Single draft for each">
+      </label>
+    </li>
+  </ul>
+</mtapp:setting>
+
+<mtapp:setting
+   id="change_draft_display_list_column"
+   label="<__trans phrase="Column in Listing">"
+   hint="<__trans phrase='You can also set display option as ChangeDraftDisplayListColumn in mt-config.cgi. It takes optional, default or force.'>"
+   show_hint="0">
+  <p><__trans phrase="Diplays Change Draft column in entries and pages listing as default?" /></p>
+  <ul>
+    <li>
+      <label>
+        <input type="radio" name="change_draft_display_list_column" value="optional"<mt:if name="change_draft_display_list_column" eq="optional"> checked="checked"</mt:if> />
+        <__trans phrase="Hide as default">
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="radio" name="change_draft_display_list_column" value="default"<mt:if name="change_draft_display_list_column" eq="default"> checked="checked"</mt:if> />
+        <__trans phrase="Show as default">
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="radio" name="change_draft_display_list_column" value="force"<mt:if name="change_draft_display_list_column" eq="force"> checked="checked"</mt:if> />
+        <__trans phrase="Force to display">
+      </label>
+    </li>
+  </ul>
+</mtapp:setting>
+
+<mtapp:setting
+   id="change_draft_widget"
+   label="<__trans phrase="Widget in Editing">"
+   show_hint="0">
+  <p><__trans phrase="Displays Change Draft widget on sidebar in editing entry or page screen." /></p>
+  <ul>
+    <li>
+      <label>
+        <input type="radio" name="change_draft_widget" value="1"<mt:if name="change_draft_widget"> checked="checked"</mt:if> />
+        <__trans phrase="Displays">
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="radio" name="change_draft_widget" value="0"<mt:unless name="change_draft_widget"> checked="checked"</mt:unless> />
+        <__trans phrase="Hides">
+      </label>
+    </li>
+  </ul>
+</mtapp:setting>

@@ -1,0 +1,51 @@
+<p>
+    <__trans phrase="You can change more settings in system plugin settings:" />
+    <mt:if name="change_draft_administrator">
+    <a href="<mt:var name='change_draft_system_plugin_uri' />"><__trans phrase="Open" /></a>
+    <mt:else>
+    <span><__trans phrase="Ask to system administrator." /></span>
+    </mt:if>
+</p>
+<mtapp:setting
+   id="change_draft_enabled"
+   label="<__trans phrase="Change Draft">"
+   show_hint="0">
+  <ul>
+    <li>
+      <label>
+        <input type="radio" name="change_draft_enabled" value="2"<mt:if name="change_draft_enabled_2"> checked="checked"</mt:if> />
+        <__trans phrase="Follows the system setting - [_1]" params="<mt:var name="change_draft_enabled_system_label">">
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="radio" name="change_draft_enabled" value="1"<mt:if name="change_draft_enabled_1"> checked="checked"</mt:if> />
+        <__trans phrase="Enables">
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="radio" name="change_draft_enabled" value="0"<mt:unless name="change_draft_enabled"> checked="checked"</mt:unless> />
+        <__trans phrase="Disables">
+      </label>
+    </li>
+  </ul>
+</mtapp:setting>
+
+<mt:if name="change_draft_debug">
+<mtapp:setting
+   id="change_draft_debug"
+   label="<__trans phrase="Debug">"
+   show_hint="0">
+  <ul>
+    <li>
+        Single Enabled = <mt:var name="change_draft_debug_single">
+    </li>
+    <mt:loop name="change_draft_debug_config">
+        <li>
+            <mt:var name="__key__"> = <mt:var name="__value__">;
+        </li>
+    </mt:loop>
+  </ul>
+</mtapp:setting>
+</mt:if>
