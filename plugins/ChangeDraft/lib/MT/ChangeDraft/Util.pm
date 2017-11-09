@@ -5,7 +5,6 @@ use warnings;
 use base qw(Exporter);
 
 use Data::Dumper;
-use MT::Ideamans::Store;
 
 our @EXPORT = qw(plugin pp list_shortcuts plugin_config query_config format_acted_on);
 

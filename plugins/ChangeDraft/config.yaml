@@ -1,6 +1,6 @@
 id: ChangeDraft
 name: ChangeDraft
-version: 0.9.5
+version: 0.9.6
 schema_version: 0.05
 l10n_class: MT::ChangeDraft::L10N
 description: <__trans phrase="Enables draft for a published entry and page.">
